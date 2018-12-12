@@ -23,7 +23,6 @@ server.use(bodyParser.urlencoded({ extended: true }));
 var url = process.env.MONGOLAB_URI_MEDICAL;
 console.log('MONGOLAB_URI_MEDICAL=' + url);
 
-//server.set("port", PORT);
 server.set('port', PORT);
 
 server.listen(server.get("port"), function () {
@@ -97,7 +96,7 @@ server.get('/patients/doctor/:id', function (req, res, next) {
   })
 })
 
-//*Get all patients in the system
+//Get all patients in the system
 
 server.get('/patients', function (req, res, next) {
   console.log("GET!!!!!!!!!!!!!");
@@ -113,7 +112,7 @@ server.get('/patients', function (req, res, next) {
   })
 })
 
-//*Get all doctors in the system
+//Get all doctors in the system
 
 server.get('/doctors', function (req, res, next) {
   MongoClient.connect(url, { useNewUrlParser: true }, function (err, db) {
@@ -170,7 +169,7 @@ server.get('/doctors/:id', function (req, res, next) {
   })
 })
 
-//* Get patient's records by patient id
+//Get patient's records by patient id
 
 server.get('/patients/:id/records', function (req, res, next) {
   MongoClient.connect(url, { useNewUrlParser: true }, function (err, db) {
@@ -190,7 +189,7 @@ server.get('/patients/:id/records', function (req, res, next) {
   })
 })
 
-//* Get doctor login page
+//Get doctor login page
 
 server.get('/login/:doctor_login/:doctor_password', function (req, res, next) {
   MongoClient.connect(url, { useNewUrlParser: true }, function (err, db) {
@@ -230,7 +229,7 @@ server.get('/records', function (req, res, next) {
   })
 })
 
-//* POST - create new record for a patient by patient id and record type
+//POST - create new record for a patient by patient id and record type
 
 server.post('/patients/:id/recordType/:recordType',
   [
@@ -305,7 +304,7 @@ server.post('/patients/:id/recordType/:recordType',
     })
   });
 
-//* POST - create a new patient
+//POST - create a new patient
 
 server.post('/patients',
   [
@@ -353,7 +352,7 @@ server.post('/patients',
     })
   })
 
-  //* POST - create a new doctor
+  //POST - create a new doctor
 
 server.post('/doctors',
 [
@@ -671,7 +670,6 @@ server.put('/records/:id',
       });
     })
   })
-
 
   server.put('/doctors/:id',
 [

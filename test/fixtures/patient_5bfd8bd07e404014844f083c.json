@@ -1,14 +1,15 @@
 {
-    "_id":"5bfd8bd07e404014844f083c",
-    "patient_firstName":"Sara",
-    "patient_lastName":"Carr",
-    "patient_dateOfBirth":"1970-04-12",
-    "patient_gender":"female",
-    "patient_address":"825 Coxwell Ave, East York",
-    "patient_city":"Toronto",
-    "patient_province":"ON",
-    "patient_postalCode":"M4C 3E7",
-    "patient_e_mail":"test3@gmail.com",
-    "patient_phoneNumber":"65432-87-43",
-    "patient_doctorID":"5bfd6455312f7508ae722a11"
+    "_id": "5c0e88b245aefe0016828deb",
+    "photo": "photo_1",
+    "patient_firstName": "John",
+    "patient_lastName": "Carr",
+    "patient_dateOfBirth": "1993-12-10",
+    "patient_gender": "female",
+    "patient_address": "654 Cosburn Ave.",
+    "patient_city": "Montreal",
+    "patient_province": "Quebec",
+    "patient_postalCode": "K8F 4S1",
+    "patient_e_mail": "peter@gmail.com",
+    "patient_phoneNumber": "765 324 5676",
+    "patient_doctorID": "5c0e836c45aefe0016828de9"
 }

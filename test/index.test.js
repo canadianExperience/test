@@ -24,33 +24,6 @@ function difference(object, base) {
 	});
 }
 
-// describe("index", function() {
-//     describe("/patients GET", function() {
-//     });
-// });
-
-
-//Test example
-// function Person(givenName, familyName) {
-//     this.givenName = givenName;
-//     this.familyName = familyName;
-//   }
-  
-//   Person.prototype.getFullName = function() {
-//     return `${this.givenName} ${this.familyName}`;
-//   };
-  
-//   describe('Sample Sinon Stub Take 2', () => {
-//     it('should pass', (done) => {
-//       const name = new Person('Michael', 'Herman');
-//       console.log("\nname.getFullName()=", name.getFullName());
-//       name.getFullName().should.eql('Michael Herman');
-//       sinon.stub(Person.prototype, 'getFullName').returns('John Doe');
-//       name.getFullName().should.eql('John Doe');
-//       done();
-//     });
-//   });
-
 
 //=============
 const base = 'https://elena-mohsena-group-project.herokuapp.com';
@@ -62,7 +35,7 @@ describe('patients_api', () => {
 
     describe('GET /patients/:id', () => {
         it('Status code should be 200', (done) => {
-            request.get(`${base}/patients/5bfd8bd07e404014844f083c`, (err, res, body) => {
+            request.get(`${base}/patients/5c0e88b245aefe0016828deb`, (err, res, body) => {
                 // there should be a 200 status code
                 res.statusCode.should.eql(200);
                 done();
@@ -70,7 +43,7 @@ describe('patients_api', () => {
         });
 
         it('Content type should be application/json', (done) => {
-            request.get(`${base}/patients/5bfd8bd07e404014844f083c`, (err, res, body) => {
+            request.get(`${base}/patients/5c0e88b245aefe0016828deb`, (err, res, body) => {
 
                 // the response should be JSON
                 res.headers['content-type'].should.contain('application/json');
@@ -79,11 +52,11 @@ describe('patients_api', () => {
         });
 
         it('Content type should return proper response', (done) => {
-            request.get(`${base}/patients/5bfd8bd07e404014844f083c`, (err, res, body) => {
+            request.get(`${base}/patients/5c0e88b245aefe0016828deb`, (err, res, body) => {
               
                 // parse response body
                 body = JSON.parse(body);
-                var patient = require('./fixtures/patient_5bfd8bd07e404014844f083c.json');
+                var patient = require('./fixtures/patient_5c0e88b245aefe0016828deb.json');
                 body.should.eql(patient);
                 done();
             });
@@ -106,20 +79,21 @@ describe('patients_api', () => {
         }
       };
       responseBody = 
-        {
-          "_id":"5bfd8bd07e404014844f083c",
-          "patient_firstName":"Sara",
-          "patient_lastName":"Carr",
-          "patient_dateOfBirth":"1970-04-12",
-          "patient_gender":"female",
-          "patient_address":"825 Coxwell Ave, East York",
-          "patient_city":"Toronto",
-          "patient_province":"ON",
-          "patient_postalCode":"M4C 3E7",
-          "patient_e_mail":"test3@gmail.com",
-          "patient_phoneNumber":"65432-87-43",
-          "patient_doctorID":"5bfd6455312f7508ae722a11"
-      }
+      {
+        "_id": "5c0e88b245aefe0016828deb",
+        "photo": "photo_1",
+        "patient_firstName": "John",
+        "patient_lastName": "Carr",
+        "patient_dateOfBirth": "1993-12-10",
+        "patient_gender": "female",
+        "patient_address": "654 Cosburn Ave.",
+        "patient_city": "Montreal",
+        "patient_province": "Quebec",
+        "patient_postalCode": "K8F 4S1",
+        "patient_e_mail": "peter@gmail.com",
+        "patient_phoneNumber": "765 324 5676",
+        "patient_doctorID": "5c0e836c45aefe0016828de9"
+    }
         this.get = sinon.stub(request, 'get');
     });
   // After each test restore req , 
@@ -130,7 +104,7 @@ describe('patients_api', () => {
     describe('GET /patients/:id', () => {
       it('Status code should be 200', (done) => {
         this.get.yields(null, responseObject, JSON.stringify(responseBody));
-        request.get(`${base}/patients/5bfd8bd07e404014844f083c`, (err, res, body) => {
+        request.get(`${base}/patients/5c0e88b245aefe0016828deb`, (err, res, body) => {
           // there should be a 200 status code
           res.statusCode.should.eql(200);
           done();
@@ -141,7 +115,7 @@ describe('patients_api', () => {
     describe('GET /patients/:id', () => {
         it('Content type should be application/json', (done) => {
           this.get.yields(null, responseObject, JSON.stringify(responseBody));
-          request.get(`${base}/patients/5bfd8bd07e404014844f083c`, (err, res, body) => {
+          request.get(`${base}/patients/5c0e88b245aefe0016828deb`, (err, res, body) => {
             // the response should be JSON
             res.headers['content-type'].should.contain('application/json');
             done();
@@ -152,9 +126,9 @@ describe('patients_api', () => {
       describe('GET /patients/:id', () => {
         it('Content type should return proper response', (done) => {
           this.get.yields(null, responseObject, JSON.stringify(responseBody));
-          request.get(`${base}/patients/5bfd8bd07e404014844f083c`, (err, res, body) => {
+          request.get(`${base}/patients/5c0e88b245aefe0016828deb`, (err, res, body) => {
             // parse response body
-            var patient = require('./fixtures/patient_5bfd8bd07e404014844f083c.json');
+            var patient = require('./fixtures/patient_5c0e88b245aefe0016828deb.json');
             body = JSON.parse(body);
             body.should.eql(patient);
             done();
